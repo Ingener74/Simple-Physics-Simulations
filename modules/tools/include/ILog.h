@@ -9,7 +9,9 @@
 
 #include <string>
 
-class ILog{
+#include "ErrorHandler.h"
+
+class ILog: public ErrorHandler{
 public:
 	virtual ~ILog(){}
 	virtual void put( const std::string& message ) = 0;
