@@ -1,5 +1,5 @@
-Cloth-Simulation
+Simple-Physics-Simulations
 ================
 
-Simple cloth simulation
-Linux, Android Native-Activity cross-platform application
+Simple physics simulations
+Linux, Android Native-Activity cross-platform applications
