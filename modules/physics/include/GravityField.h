@@ -13,14 +13,13 @@
 
 namespace physics {
 
-class GravityField: public IForceField<MaterialPoint> {
+class GravityField: public IForceField<MaterialPoint, cv::Point3d> {
 public:
-	GravityField(double gravityAccleration);
+	GravityField( double gravityAccleration );
 	virtual ~GravityField();
 
-	cv::Point3d Force( const MaterialPoint& materialPoint ){
-		return cv::Point3d(0.0, -_gravityAccleration * materialPoint.getMass(), 0.0);
-	}
+	cv::Point3d Force( const MaterialPoint& materialPoint );
+
 private:
 	double _gravityAccleration;
 };

@@ -38,7 +38,7 @@ public:
 	}
 
 	virtual void update(const std::vector<cv::Point3d*>& forces,
-			const std::vector<IForceField<MaterialPoint>*>& forceFields, double deltaTime);
+			const std::vector<IForceField<MaterialPoint, cv::Point3d>*>& forceFields, double deltaTime);
 
 private:
 	cv::Point3d _pos;

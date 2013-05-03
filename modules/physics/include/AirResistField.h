@@ -13,7 +13,7 @@
 
 namespace physics {
 
-class AirResistField: public IForceField<MaterialPoint> {
+class AirResistField: public IForceField<MaterialPoint, cv::Point3d> {
 public:
 	AirResistField( double airResistance = 1.0 );
 	virtual ~AirResistField();

@@ -16,4 +16,8 @@ GravityField::GravityField( double gravityAcceleration ):
 GravityField::~GravityField() {
 }
 
+cv::Point3d GravityField::Force( const MaterialPoint& materialPoint ){
+	return cv::Point3d(0.0, -_gravityAccleration * materialPoint.getMass(), 0.0);
+}
+
 } /* namespace physics */
