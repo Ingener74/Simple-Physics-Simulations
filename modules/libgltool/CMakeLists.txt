@@ -8,11 +8,13 @@ find_package(GLUT   REQUIRED)
 
 include_directories(
     include
+    ${SPS_INSTALL_3RDPARTY_DIR}/include
     ${OPENGL_INCLUDE_DIR}
     ${GLUT_INCLUDE_DIR}
     )
 	
 link_directories(
+    ${SPS_INSTALL_3RDPARTY_DIR}/lib64
     ${OPENGL_LIBRARIES}
     ${GLUT_LIBRARIES}
     )
