@@ -20,7 +20,6 @@
 // window
 uint16_t windowWidth = 1024, windowHeight = 768;
 
-
 gltools::ShaderProgram* sp;
 GLuint aPOS = 0;
 GLuint uMVP = 0;
@@ -68,12 +67,10 @@ void display(void){
 
 	sp->useProgram();
 
-	glBindBuffer(GL_ARRAY_BUFFER, coordBuffer);
-
 	glm::mat4 mvp = projMat * viewMat * glm::mat4();
-
 	glUniformMatrix4fv(uMVP, 1, GL_FALSE, glm::value_ptr(mvp));
 
+	glBindBuffer(GL_ARRAY_BUFFER, coordBuffer);
 	glVertexAttribPointer(aPOS, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	glEnableVertexAttribArray(aPOS);
 
@@ -125,7 +122,7 @@ int main( int argc, char* argv[] ){
 		gltools::ErrorLogger::getInstance()->put(gltools::ErrorLogger::FATAL_ERROR, "glew error");
 	}
 
-	void init();
+	init();
 
 	glutMainLoop();
 
