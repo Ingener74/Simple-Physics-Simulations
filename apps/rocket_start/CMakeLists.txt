@@ -3,14 +3,9 @@ cmake_minimum_required(VERSION 2.8)
 set(PROJECT_NAME rocket_start)
 project(${PROJECT_NAME})
 
-#find_package(OpenCV REQUIRED)
 include_directories(
-    ../../modules/physics/include
-    ${SPS_INSTALL_3RDPARTY_DIR}/include
-    )
-link_directories(
-    ${SPS_INSTALL_3RDPARTY_DIR}/lib
-    )
+	../../modules/physics/include
+	)
 
 file(GLOB SOURCES src/*.cpp)
 

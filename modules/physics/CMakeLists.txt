@@ -5,10 +5,6 @@ project(${PROJECT_NAME})
 
 include_directories(
     include
-    ${SPS_INSTALL_3RDPARTY_DIR}/include
-    )
-link_directories(
-    ${SPS_INSTALL_3RDPARTY_DIR}/lib
     )
 
 file(GLOB physics_src src/*.cpp)
