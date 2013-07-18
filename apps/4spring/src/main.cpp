@@ -48,8 +48,8 @@ const char* caption =
 		;
 
 const char* vertex_source =
-		"attribute vec4 aPOS;"
 		"uniform   mat4 uMVP;"
+		"attribute vec4 aPOS;"
 		"void main(void){ "
 		"	gl_Position = uMVP * aPOS;"
 		"}"
