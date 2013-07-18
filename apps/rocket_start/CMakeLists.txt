@@ -4,7 +4,7 @@ set(PROJECT_NAME rocket_start)
 project(${PROJECT_NAME})
 
 include_directories(
-	../../modules/physics/include
+	../../modules/libphysics/include
 	)
 
 file(GLOB SOURCES src/*.cpp)

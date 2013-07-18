@@ -9,6 +9,6 @@ link_directories(
 	)
 
 add_subdirectory(tools)
-add_subdirectory(physics)
+add_subdirectory(libphysics)
 add_subdirectory(libgltool)
 

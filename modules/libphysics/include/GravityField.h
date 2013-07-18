@@ -11,18 +11,22 @@
 #include "IForceField.h"
 #include "MaterialPoint.h"
 
+namespace psp{
+
 namespace physics {
 
-class GravityField: public IForceField<MaterialPoint, cv::Point3d> {
+class GravityField: public IForceField<MaterialPoint, Vector<double> > {
 public:
 	GravityField( double gravityAccleration );
 	virtual ~GravityField();
 
-	cv::Point3d Force( const MaterialPoint& materialPoint );
+	Vector<double> Force( const MaterialPoint& materialPoint );
 
 private:
 	double _gravityAccleration;
 };
 
 } /* namespace physics */
+}
+
 #endif /* GRAVITYFIELD_H_ */

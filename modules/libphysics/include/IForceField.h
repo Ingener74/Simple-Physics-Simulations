@@ -8,6 +8,8 @@
 #ifndef IFORCEFIELD_H_
 #define IFORCEFIELD_H_
 
+namespace psp{
+
 namespace physics {
 
 template<typename tMaterialPointType, typename tVectorType>
@@ -22,4 +24,6 @@ public:
 };
 
 } /* namespace physics */
+}
+
 #endif /* IFORCEFIELD_H_ */

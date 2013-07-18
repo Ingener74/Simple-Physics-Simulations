@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+#include <stdio.h>
+
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
@@ -21,17 +23,17 @@ int main() {
 
 	double dt = 1.0 / double(fps);
 
-	physics::MaterialPoint rocket(cv::Point3d(100, 0, 0), cv::Point3d(),
-			cv::Point3d(), 10.0);
-	cv::Point3d rocketForce(0.0, 500.0, 0.0);
+	psp::physics::MaterialPoint rocket(psp::physics::Vector<double>(100, 0, 0), psp::physics::Vector<double>(),
+			psp::physics::Vector<double>(), 10.0);
+	psp::physics::Vector<double> rocketForce(0.0, 500.0, 0.0);
 
-	physics::GravityField gravity(9.8);
-	physics::AirResistField airResist(1.0);
+	psp::physics::GravityField gravity(9.8);
+	psp::physics::AirResistField airResist(1.0);
 
-	std::vector<cv::Point3d*> forces;
+	std::vector<psp::physics::Vector<double>*> forces;
 	forces.push_back(&rocketForce);
 
-	std::vector<physics::IForceField<physics::MaterialPoint, cv::Point3d>*> forceFields;
+	std::vector<psp::physics::IForceField<psp::physics::MaterialPoint, psp::physics::Vector<double> >*> forceFields;
 	forceFields.push_back(&gravity);
 	forceFields.push_back(&airResist);
 
@@ -42,14 +44,16 @@ int main() {
 		rocket.update(forces, forceFields, dt);
 
 		cv::circle(im,
-				cv::Point(rocket.getPosition().x,
-						im.rows - rocket.getPosition().y), 3,
+				cv::Point(rocket.getPosition()._x,
+						im.rows - rocket.getPosition()._y), 3,
 				cv::Scalar(255, 0, 0), -1);
 		imshow("im", im);
 
-		std::cout << "P = " << rocket.getPosition() << ",\tV = "
-				<< rocket.getVelocity() << ",\tA = " << rocket.getAccleration()
-				<< std::endl;
+		printf("P: %f %f %f, V: %f %f %f, A: %f %f %f\n",
+				rocket.getPosition()._x, rocket.getPosition()._y, rocket.getPosition()._z,
+				rocket.getVelocity()._x, rocket.getVelocity()._y, rocket.getVelocity()._z,
+				rocket.getAccleration()._x, rocket.getAccleration()._y, rocket.getAccleration()._z
+				);
 
 		char c = cv::waitKey(fps_dt);
 		if (c == 27) {

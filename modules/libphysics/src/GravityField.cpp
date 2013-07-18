@@ -7,6 +7,8 @@
 
 #include "GravityField.h"
 
+namespace psp{
+
 namespace physics {
 
 GravityField::GravityField( double gravityAcceleration ):
@@ -16,8 +18,9 @@ GravityField::GravityField( double gravityAcceleration ):
 GravityField::~GravityField() {
 }
 
-cv::Point3d GravityField::Force( const MaterialPoint& materialPoint ){
-	return cv::Point3d(0.0, -_gravityAccleration * materialPoint.getMass(), 0.0);
+Vector<double> GravityField::Force( const MaterialPoint& materialPoint ){
+	return Vector<double>(0.0, -_gravityAccleration * materialPoint.getMass(), 0.0);
 }
 
 } /* namespace physics */
+}

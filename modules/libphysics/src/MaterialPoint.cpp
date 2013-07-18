@@ -5,12 +5,16 @@
  *      Author: pavel
  */
 
+#include <stdint.h>
+
 #include "MaterialPoint.h"
+
+namespace psp{
 
 namespace physics {
 
-MaterialPoint::MaterialPoint(const cv::Point3d& position,
-		const cv::Point3d& velocity, const cv::Point3d& acceleration,
+MaterialPoint::MaterialPoint(const Vector<double>& position,
+		const Vector<double>& velocity, const Vector<double>& acceleration,
 		double mass) :
 		_pos(position), _vel(velocity), _acc(acceleration), _mass(mass) {
 }
@@ -18,9 +22,9 @@ MaterialPoint::MaterialPoint(const cv::Point3d& position,
 MaterialPoint::~MaterialPoint() {
 }
 
-void MaterialPoint::update(const std::vector<cv::Point3d*>& forces,
-		const std::vector<IForceField<MaterialPoint, cv::Point3d>*>& forceFields, double deltaTime) {
-	cv::Point3d forceSum(0, 0, 0);
+void MaterialPoint::update(const std::vector<Vector<double>*>& forces,
+		const std::vector<IForceField<MaterialPoint, Vector<double> >*>& forceFields, double deltaTime) {
+	Vector<double> forceSum(0, 0, 0);
 	for (uint32_t i = 0; i < forces.size(); ++i)
 		forceSum = forceSum + *forces[i];
 	for (uint32_t i = 0; i < forceFields.size(); ++i) {
@@ -34,3 +38,5 @@ void MaterialPoint::update(const std::vector<cv::Point3d*>& forces,
 }
 
 } /* namespace physics */
+}
+

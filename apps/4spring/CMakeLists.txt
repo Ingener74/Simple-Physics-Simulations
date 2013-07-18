@@ -20,8 +20,6 @@ link_directories(
     
 set(SOURCES 
     src/main.cpp
-    src/Point.cpp
-    src/Point.h
     )
 
 set(OPENCV_LIBS opencv_core opencv_highgui opencv_imgproc)
